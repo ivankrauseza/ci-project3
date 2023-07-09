@@ -37,5 +37,6 @@ Explain install
 
 ## Acknowledgments
 - README Structure (ChatGPT)
+- [Python Functions](https://www.w3schools.com/python/python_functions.asp)
 
 ## Contact
