@@ -15,5 +15,5 @@ else:
 
 # ENTER YOUR NAME
 name = input("Please enter your name: ")
-print(greeting+" "+name+", Your session is logged at: " +start_time+".")
+print(greeting+" "+name+", Your session is logged at: " +start_time+".\n")
 
