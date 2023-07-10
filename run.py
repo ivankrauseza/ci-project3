@@ -1,4 +1,4 @@
-def my_function():
-  print("Hello from a function") 
+# ENTER YOUR NAME
+name = input("Please enter your name: ")
+print("Hello, " + name + "!")
 
-my_function()
