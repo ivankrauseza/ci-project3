@@ -70,20 +70,19 @@ while True:
     user_input = input('Please enter option: ')
     if user_input == '1':
         print('You picked JavaScript')
-        continueSession()
+        showQuestions()
         break
     elif user_input == '2':
         getCar()
-        continueSession()
+        showQuestions()
         break
     elif user_input == '3':
         print('You picked TypeScript')
-        continueSession()
+        showQuestions()
         break
     elif user_input == '4':
-        print('Session ended')
+        print('\nSession ended\n')
         break
     else:
         print('Type a number 1-4 please')
         continue
-    
