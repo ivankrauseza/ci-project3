@@ -1,9 +1,10 @@
 # Project Title
-Assist Bond 1.0 
+Agent Assist 1.0 
+
 
 ## Project Description
-The worlds number one secret agent needs a little help. This app offers predetermined solutions for the problems that plague 007 in his more 'senior' years.  
-When 007 signs in, he is presented with a list of questions which we need to answer for him as quickly as possible! 
+A quick and easy place for our secret agents to find out some information about their next mission and objectives! 
+
 
 ## Table of Contents
 
@@ -17,28 +18,41 @@ When 007 signs in, he is presented with a list of questions which we need to ans
 - [Acknowledgments](#acknowledgments)
 - [Contact](#contact)
 
-## Installation
 
-Explain install
-- Install GeoIP:  `pip install datetime` 
+## Installation
+### Environment
+- You need to install [Python](https://www.python.org/downloads/) and [NodeJS](https://nodejs.org/en/download).  
+- Clone from GIT repo `git clone https://github.com/ivankrauseza/ci-project3.git`.
+
+
+### Python modules
+- Install DateTime:  `pip install datetime` 
 - Install GeoIP:  `pip install python-geoip` 
 - Install Colorama:  `pip install colorama` 
 
 
 ## Usage
-### Regular questions
-- Where am I?
-- I can't find my DB5
-- I need a snack  
+This is where the wireframe and screenshots go...  
+
+
+### Logic
+- The user starts a session by inputting a valid Agent Code '007' or '47'.
+- The user must choose 1 of 4 options to proceed to the next step.
+- The user can return to the main menu or end the session.
+
 
 ## Features
 ### Get current date and time
 - This is to personalise the greeting (morning, afternoon, evening)
 ### Color coding
-- Add colorama for color coding some print()
+- Add colorama for color coding some of the print() statements.
+### GeoLocation
+- Fetches GPS Co-ordinates of the next target.
+
 
 ## Bugs
 - Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form
+
 
 ## Documentation
 
