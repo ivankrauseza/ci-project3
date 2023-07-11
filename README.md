@@ -20,16 +20,22 @@ When 007 signs in, he is presented with a list of questions which we need to ans
 ## Installation
 
 Explain install
-- Install GeoIP using:  `pip install python-geoip` 
+- Install GeoIP:  `pip install datetime` 
+- Install GeoIP:  `pip install python-geoip` 
+- Install Colorama:  `pip install colorama` 
 
 
 ## Usage
-
-## Features
 ### Regular questions
 - Where am I?
 - I can't find my DB5
-- I need a snack
+- I need a snack  
+
+## Features
+### Get current date and time
+- This is to personalise the greeting (morning, afternoon, evening)
+### Color coding
+- Add colorama for color coding some print()
 
 ## Bugs
 - Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form
