@@ -10,7 +10,7 @@ When 007 signs in, he is presented with a list of questions which we need to ans
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
+- [Bugs](#bugs)
 - [Documentation](#documentation)
 - [License](#license)
 - [Authors](#authors)
@@ -31,7 +31,8 @@ Explain install
 - I can't find my DB5
 - I need a snack
 
-## Contributing
+## Bugs
+- Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form
 
 ## Documentation
 
