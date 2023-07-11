@@ -1,4 +1,7 @@
 import datetime
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 
 # Session Management
 def continueSession():
@@ -9,7 +12,7 @@ def continueSession():
             showQuestions()
             continue
         elif qbranch == 'N':
-            print("\nSession terminated!\n")
+            print(Fore.RED + "\nSession terminated!\n")
             quit()
         else:
             print("Please only enter Y for 'yes' or N for 'no'")
@@ -52,7 +55,7 @@ def answerQuestion():
     user_input = ''
 
     while True:
-        user_input = int(input('\nPlease enter option: '))
+        user_input = int(input(Fore.YELLOW + '\nPlease enter NUMBER: '))
         if user_input == 1:
             getTarget()
             continue
@@ -63,7 +66,7 @@ def answerQuestion():
             getTreat()
             continue
         elif user_input == 4:
-            print("\nSession terminated!\n")
+            print(Fore.RED + "\nSession terminated!\n")
             quit()
         else:
             print('Type a number 1-4 please')
@@ -81,16 +84,16 @@ def showQuestions():
 def askName():
     name = input("Please enter your Agent Code: ")
     if name == "007":
-        print(greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +start_time+".\n")
         showQuestions()
     elif name == "47":
-        print(greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +start_time+".\n")
         showQuestions()
     elif name == "":
-        print("Your session cannot be started, please enter a valid Agent Code!")
+        print(Fore.RED + "Your session cannot be started, please enter a valid Agent Code!")
         askName()
     else:
-        print("Your session cannot be started")
+        print(Fore.RED + "Your session cannot be started")
         askName()
 
 askName()
