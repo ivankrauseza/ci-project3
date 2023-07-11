@@ -53,5 +53,6 @@ Explain install
 - [Python Date and Time](https://www.geeksforgeeks.org/get-current-date-and-time-using-python/)
 - [Python options selector](https://bobbyhadz.com/blog/python-select-option-input)
 - [Get Location](https://pythonhosted.org/python-geoip/)
+- [Colorama Tutorial](https://www.youtube.com/watch?v=u51Zjlnui4Y)
 
 ## Contact
