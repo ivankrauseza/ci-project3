@@ -2,6 +2,7 @@ import datetime
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+from geopy.geocoders import Nominatim
 
 # Session Management
 def continueSession():
@@ -36,7 +37,22 @@ else:
 
 # Answer 1
 def getTarget():
-    print('\nYour next target is PROFILE\n')
+    print('\nYour next target is Shinji Nakamora\n')
+    # calling the nominatim tool
+    geoLoc = Nominatim(user_agent="GetLoc")
+
+    # calling the Nominatim tool
+    loc = Nominatim(user_agent="GetLoc")
+    
+    # entering the location name
+    getLoc = loc.geocode("Paris, France")
+    
+    # printing address
+    print(getLoc.address)
+    
+    # printing latitude and longitude
+    print("Latitude = ", getLoc.latitude, "\n")
+    print("Longitude = ", getLoc.longitude)
     continueSession()
 
 # Answer 2
