@@ -9,12 +9,11 @@ def continueSession():
             showQuestions()
             continue
         elif qbranch == 'N':
-            print("\nYour session has be terminated!\n")
-            break
+            print("\nSession terminated!\n")
+            quit()
         else:
             print("Please only enter Y for 'yes' or N for 'no'")
             showQuestions()
-            continue
 
 # Determine time based greeting message:
 current_time = datetime.datetime.now().time()
@@ -48,11 +47,35 @@ def getTreat():
     continueSession()
 
 
+# User Input
+def answerQuestion():
+    user_input = ''
+
+    while True:
+        user_input = int(input('\nPlease enter option: '))
+        if user_input == 1:
+            getTarget()
+            continue
+        elif user_input == 2:
+            getCar()
+            continue
+        elif user_input == 3:
+            getTreat()
+            continue
+        elif user_input == 4:
+            print("\nSession terminated!\n")
+            quit()
+        else:
+            print('Type a number 1-4 please')
+            continue
+
 # All Options
 def showQuestions():
     options = ["1. Who is my next Target", "2. Where is my closest car", "3. I need a treat from Q-Branch", "4. End session"]
     for x in options:
         print(x+"")
+    
+    answerQuestion()
 
 # Step 1: Ask for the user name:
 def askName():
@@ -72,25 +95,4 @@ def askName():
 
 askName()
 
-
-# Question response:
-user_input = ''
-
-while True:
-    user_input = int(input('\nPlease enter option: '))
-    if user_input == 1:
-        getTarget()
-        continue
-    elif user_input == 2:
-        getCar()
-        continue
-    elif user_input == 3:
-        getTreat()
-        continue
-    elif user_input == 4:
-        print('\nSession ended\n')
-        break
-    else:
-        print('Type a number 1-4 please')
-        continue
 
