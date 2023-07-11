@@ -14,8 +14,16 @@ else:
     greeting = "Good evening"
 
 # ENTER YOUR NAME
-name = input("Please enter your name: ")
-print(greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+def askName():
+    name = input("Please enter your Agent designation: ")
+    if name == "007":
+        print(greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+    elif name == "Agent 47":
+        print(greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+    else:
+        print("Your session cannot be started")
+        
+askName()
 
 user_input = ''
 
