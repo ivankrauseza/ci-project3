@@ -4,20 +4,6 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 from geopy.geocoders import Nominatim
 
-# Session Management
-def continueSession():
-    qbranch = ''
-    while True:
-        qbranch = input("Would you like to continue? [Y/N]: ")
-        if qbranch == 'Y':
-            showQuestions()
-            continue
-        elif qbranch == 'N':
-            print(Fore.RED + "\nSession terminated!\n")
-            quit()
-        else:
-            print("Please only enter Y for 'yes' or N for 'no'")
-            showQuestions()
 
 # Determine time based greeting message:
 current_time = datetime.datetime.now().time()
@@ -34,9 +20,24 @@ else:
     greeting = "\nGood evening"
 
 
+# Session Management
+def continueSession():
+    qbranch = ''
+    while True:
+        qbranch = input(Fore.YELLOW + "Would you like to continue? [Y/N]: ").lower()
+        if qbranch == 'y':
+            showQuestions()
+            continue
+        elif qbranch == 'n':
+            print(Fore.RED + "\nSession terminated!\n")
+            quit()
+        else:
+            print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
+            continueSession()
+
 
 # Answer 1
-def getTarget():
+def ansA():
     print(Fore.CYAN + '\nTarget:')
     print(Fore.WHITE + 'Shinji Nakamora')
     print(Fore.CYAN + '\nObjective:')
@@ -56,16 +57,15 @@ def getTarget():
     print("Latitude = ", getLoc.latitude, "")
     print("Longitude = ", getLoc.longitude)
     print("\n")
-    continueSession()
 
 # Answer 2
-def getCar():
-    print('\nYou parked your car at your local Supermarket\n')
+def ansB():
+    print(Fore.WHITE + '\nYou parked your car at your local Supermarket\n')
     continueSession()
 
 # Answer 3
-def getTreat():
-    print('\nSomething from Q-Branch\n')
+def ansC():
+    print(Fore.WHITE + '\nSomething from Q-Branch\n')
     continueSession()
 
 
@@ -76,13 +76,14 @@ def answerQuestion():
     while True:
         user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED:'))
         if user_input == 1:
-            getTarget()
+            ansA()
+            continueSession()
             continue
         elif user_input == 2:
-            getCar()
+            ansB()
             continue
         elif user_input == 3:
-            getTreat()
+            ansC()
             continue
         elif user_input == 4:
             print(Fore.RED + "\nSession terminated!\n")
@@ -93,7 +94,7 @@ def answerQuestion():
 
 # All Options
 def showQuestions():
-    options = ["1. NEXT TARGET", "2. TRAVEL ARRANGEMENTS", "3. ACCEPT MISSION", "4. TERMINATE SESSION"]
+    options = [Fore.WHITE + "1. NEXT TARGET", "2. TRAVEL ARRANGEMENTS", "3. ACCEPT MISSION", "4. TERMINATE SESSION"]
     for x in options:
         print(x+"")
     
@@ -112,7 +113,7 @@ def askName():
         print(Fore.RED + "Your session cannot be started, please enter a valid Agent Code!")
         askName()
     else:
-        print(Fore.RED + "Your session cannot be started")
+        print(Fore.RED + "Your session cannot be started due to an error!")
         askName()
 
 askName()
