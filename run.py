@@ -1,6 +1,6 @@
 import datetime
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Fore
 colorama.init(autoreset=True)
 from geopy.geocoders import Nominatim
 
@@ -24,7 +24,7 @@ else:
 def continueSession():
     qbranch = ''
     while True:
-        qbranch = input(Fore.YELLOW + "Would you like to continue? [Y/N]: ").lower()
+        qbranch = input(Fore.YELLOW + "Would you like to continue? [Y/N]:\n").lower()
         if qbranch == 'y':
             showQuestions()
             continue
@@ -86,7 +86,7 @@ def ansB():
 def ansC():
     acceptMission = ''
     while True:
-        acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THE MISSION? [Y/N]: ").lower()
+        acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THE MISSION? [Y/N]:\n").lower()
         if acceptMission == 'y':
             showQuestions()
             continue
@@ -104,7 +104,7 @@ def answerQuestion():
 
     while True:
         try:
-            user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED [1-4]:'))
+            user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED [1-4]:\n'))
             if user_input == 1:
                 ansA()
                 continueSession()
@@ -133,7 +133,7 @@ def showQuestions():
 
 # Step 1: Ask for the user name:
 def askName():
-    name = input(Fore.YELLOW + "\nAGENT CODE:")
+    name = input(Fore.YELLOW + "\nAGENT CODE:\n")
     if name == "007":
         print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +start_time+".\n")
         showQuestions()
