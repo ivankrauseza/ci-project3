@@ -12,11 +12,9 @@ A quick and easy place for our secret agents to find out some information about 
 - [Usage](#usage)
 - [Features](#features)
 - [Bugs](#bugs)
-- [Documentation](#documentation)
-- [License](#license)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
-- [Contact](#contact)
+- [Deployment](#deployment)
 
 
 ## Installation
@@ -25,7 +23,7 @@ A quick and easy place for our secret agents to find out some information about 
 - Clone from GIT repo `git clone https://github.com/ivankrauseza/ci-project3.git`.
 
 
-### Python modules
+### Installed Python modules
 - Install DateTime:  `pip install datetime` 
 - Install GeoIP:  `pip install python-geoip` 
 - Install Colorama:  `pip install colorama` 
@@ -51,12 +49,13 @@ This is where the wireframe and screenshots go...
 
 
 ## Bugs
-- Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form
+- B1 :: Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form.
+- B2 :: Entering any letter when choosing from the main options menu [1-4] loads an integer error.
 
+## Resolved Bugs
+- B1 :: Seems to be resolved by moving the global call for the function to within the function itself.
+- B2 :: Fixed by using Try/Except from [source](https://www.includehelp.com/python/asking-the-user-for-integer-input-in-python-limit-the-user-to-input-only-integer-value.aspx)
 
-## Documentation
-
-## Licence
 
 ## Authors
 <bold>Ivan Krause</bold>
@@ -69,4 +68,6 @@ This is where the wireframe and screenshots go...
 - [Get Location](https://pythonhosted.org/python-geoip/)
 - [Colorama Tutorial](https://www.youtube.com/watch?v=u51Zjlnui4Y)
 
-## Contact
+## Deployment
+- Deployed to github
+- Deployed to Heroku

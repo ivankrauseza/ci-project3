@@ -60,13 +60,42 @@ def ansA():
 
 # Answer 2
 def ansB():
-    print(Fore.WHITE + '\nYou parked your car at your local Supermarket\n')
+    print(Fore.CYAN + '\nTravel Arrangements:')
+    print(Fore.WHITE + 'Meet with Q at 11:11 tomorrow to pick up your Travel documentation and equipment:\n')
+    print(Fore.CYAN + '\nCurrent Location:')
+
+    # calling the Nominatim tool
+    loc = Nominatim(user_agent="GetLoc")
+    
+    # entering the location name
+    getLoc = loc.geocode("Dublin Zoo, Dublin, Ireland\n")
+    
+    # printing address
+    print(getLoc.address)
+    
+    # printing latitude and longitude
+    print("Latitude = ", getLoc.latitude, "")
+    print("Longitude = ", getLoc.longitude)
+    print(Fore.CYAN + '\nNotes:')
+    print(Fore.WHITE + 'Q will be in a purple hoodie outside the Red Panda enclosure!:\n')
+    print("\n")
     continueSession()
 
-# Answer 3
+
+# Session Management
 def ansC():
-    print(Fore.WHITE + '\nSomething from Q-Branch\n')
-    continueSession()
+    acceptMission = ''
+    while True:
+        acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THE MISSION? [Y/N]: ").lower()
+        if acceptMission == 'y':
+            showQuestions()
+            continue
+        elif acceptMission == 'n':
+            print(Fore.RED + "\nSession terminated!\n")
+            quit()
+        else:
+            print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
+            ansC()
 
 
 # User Input
@@ -74,23 +103,24 @@ def answerQuestion():
     user_input = ''
 
     while True:
-        user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED:'))
-        if user_input == 1:
-            ansA()
-            continueSession()
-            continue
-        elif user_input == 2:
-            ansB()
-            continue
-        elif user_input == 3:
-            ansC()
-            continue
-        elif user_input == 4:
-            print(Fore.RED + "\nSession terminated!\n")
-            quit()
-        else:
-            print('Type a number 1-4 please')
-            continue
+        try:
+            user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED [1-4]:'))
+            if user_input == 1:
+                ansA()
+                continueSession()
+                continue
+            elif user_input == 2:
+                ansB()
+                continue
+            elif user_input == 3:
+                ansC()
+                continue
+            elif user_input == 4:
+                print(Fore.RED + "\nSession terminated!\n")
+                quit()
+        except ValueError:
+                print('Type any number from 1-4 please')
+                continue
 
 # All Options
 def showQuestions():
@@ -99,6 +129,7 @@ def showQuestions():
         print(x+"")
     
     answerQuestion()
+
 
 # Step 1: Ask for the user name:
 def askName():
