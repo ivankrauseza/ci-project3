@@ -37,9 +37,11 @@ else:
 
 # Answer 1
 def getTarget():
-    print('\nYour next target is Shinji Nakamora\n')
-    # calling the nominatim tool
-    geoLoc = Nominatim(user_agent="GetLoc")
+    print(Fore.CYAN + '\nTarget:')
+    print(Fore.WHITE + 'Shinji Nakamora')
+    print(Fore.CYAN + '\nObjective:')
+    print(Fore.WHITE + 'Locate and extract target with minimal force. Required for urgent questioning!')
+    print(Fore.CYAN + '\nCurrent Location:')
 
     # calling the Nominatim tool
     loc = Nominatim(user_agent="GetLoc")
@@ -53,6 +55,7 @@ def getTarget():
     # printing latitude and longitude
     print("Latitude = ", getLoc.latitude, "")
     print("Longitude = ", getLoc.longitude)
+    print("\n")
     continueSession()
 
 # Answer 2
@@ -71,7 +74,7 @@ def answerQuestion():
     user_input = ''
 
     while True:
-        user_input = int(input(Fore.YELLOW + '\nPlease enter NUMBER: '))
+        user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED:'))
         if user_input == 1:
             getTarget()
             continue
@@ -90,7 +93,7 @@ def answerQuestion():
 
 # All Options
 def showQuestions():
-    options = ["1. Who is my next Target", "2. Where is my closest car", "3. I need a treat from Q-Branch", "4. End session"]
+    options = ["1. NEXT TARGET", "2. TRAVEL ARRANGEMENTS", "3. ACCEPT MISSION", "4. TERMINATE SESSION"]
     for x in options:
         print(x+"")
     
@@ -98,7 +101,7 @@ def showQuestions():
 
 # Step 1: Ask for the user name:
 def askName():
-    name = input("Please enter your Agent Code: ")
+    name = input(Fore.YELLOW + "\nAGENT CODE:")
     if name == "007":
         print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +start_time+".\n")
         showQuestions()
