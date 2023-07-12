@@ -87,12 +87,12 @@ Testing performed with 'PyTest'
 - Version Control via GitHub
 
 ### Deployed to Heroku
-App Name - ivankrause-ci-project3
-Region - Europe
-Deployment Method - Connect to Github
-Choose Repository - ci-project3
-Branch - main
-Automatic Deploys - Enable Automatic Deploys
-Manual Deploys - Deploy Branch 
-APP - https://ivankrause-ci-project3-36718a380df7.herokuapp.com/
-Application Error
+- App Name - ivankrause-ci-project3
+- Region - Europe
+- Settings - Add buildpack - Python & NodeJS
+- Deployment Method - Connect to Github
+- Choose Repository - ci-project3
+- Branch - main
+- Automatic Deploys - Enable Automatic Deploys
+- Manual Deploys - Deploy Branch 
+- APP - https://ivankrause-ci-project3-36718a380df7.herokuapp.com/

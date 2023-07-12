@@ -81,17 +81,22 @@ def ansB():
     print("\n")
     continueSession()
 
+def missionAccept():
+    print(Fore.CYAN + '\nMISSION ACCEPTED!\n')
+    
+def missionReject():
+    print(Fore.RED + '\nMISSION REJECTED!\n')
 
 # Session Management
 def ansC():
     acceptMission = ''
     while True:
-        acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THE MISSION? [Y/N]:\n").lower()
+        acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THIS MISSION? [Y/N]:\n").lower()
         if acceptMission == 'y':
-            showQuestions()
-            continue
+            missionAccept()
+            quit()
         elif acceptMission == 'n':
-            print(Fore.RED + "\nSession terminated!\n")
+            missionReject()
             quit()
         else:
             print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
