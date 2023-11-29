@@ -1,8 +1,7 @@
 from datetime import datetime
 from geopy.geocoders import Nominatim
-import colorama
-from colorama import Fore
-colorama.init(autoreset=True)
+from colorama import Fore, init
+init()
 
 
 # VARIABLES:
@@ -20,8 +19,7 @@ else:
 # FUNCTIONS:
 
 
-# Session Management
-def continueSession():
+def continueSession():  # Session Management
     qbranch = ''
     while True:
         qbranch = input(Fore.YELLOW + "Would you like to continue? [Y/N]:\n").lower()
@@ -36,59 +34,44 @@ def continueSession():
             continueSession()
 
 
-# Answer 1
-def ansA():
+def ansA():  # Answer 1
     print(Fore.CYAN + '\nTarget:')
     print(Fore.WHITE + 'Shinji Nakamora')
     print(Fore.CYAN + '\nObjective:')
     print(Fore.WHITE + 'Locate and extract target with minimal force. Required for urgent questioning!')
     print(Fore.CYAN + '\nCurrent Location:')
-
-    # calling the Nominatim tool
-    loc = Nominatim(user_agent="GetLoc")
-    
-    # entering the location name
-    getLoc = loc.geocode("Paris, France\n")
-    
-    # printing address
-    print(getLoc.address)
-    
-    # printing latitude and longitude
-    print("Latitude = ", getLoc.latitude, "")
-    print("Longitude = ", getLoc.longitude)
+    loc = Nominatim(user_agent="GetLoc")  # calling the Nominatim tool
+    getLoc = loc.geocode("Paris, France\n")  # entering the location name
+    print(getLoc.address)  # printing address
+    print("Latitude = ", getLoc.latitude, "")  # printing latitude
+    print("Longitude = ", getLoc.longitude)  # printing longitude
     print("\n")
 
-# Answer 2
-def ansB():
+
+def ansB():  # Answer 2
     print(Fore.CYAN + '\nTravel Arrangements:')
     print(Fore.WHITE + 'Meet with Q at 11:11 tomorrow to pick up your Travel documentation and equipment:\n')
     print(Fore.CYAN + '\nCurrent Location:')
-
-    # calling the Nominatim tool
-    loc = Nominatim(user_agent="GetLoc")
-    
-    # entering the location name
-    getLoc = loc.geocode("Dublin Zoo, Dublin, Ireland\n")
-    
-    # printing address
-    print(getLoc.address)
-    
-    # printing latitude and longitude
-    print("Latitude = ", getLoc.latitude, "")
-    print("Longitude = ", getLoc.longitude)
+    loc = Nominatim(user_agent="GetLoc")  # calling the Nominatim tool
+    getLoc = loc.geocode("Dublin Zoo, Dublin, Ireland\n")  # entering the location name
+    print(getLoc.address)  # printing address
+    print("Latitude = ", getLoc.latitude, "")  # printing latitude
+    print("Longitude = ", getLoc.longitude)  # printing longitude
     print(Fore.CYAN + '\nNotes:')
     print(Fore.WHITE + 'Q will be in a purple hoodie outside the Red Panda enclosure!:\n')
     print("\n")
     continueSession()
 
+
 def missionAccept():
     print(Fore.CYAN + '\nMISSION ACCEPTED!\n')
-    
+
+
 def missionReject():
     print(Fore.RED + '\nMISSION REJECTED!\n')
 
-# Session Management
-def ansC():
+
+def ansC():  # Answer 3
     acceptMission = ''
     while True:
         acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THIS MISSION? [Y/N]:\n").lower()
@@ -103,8 +86,7 @@ def ansC():
             ansC()
 
 
-# User Input
-def answerQuestion():
+def answerQuestion():  # Option responses
     user_input = ''
 
     while True:
@@ -124,20 +106,18 @@ def answerQuestion():
                 print(Fore.RED + "\nSession terminated!\n")
                 quit()
         except ValueError:
-                print('Type any number from 1-4 please')
-                continue
+            print('Type any number from 1-4 please')
+            continue
 
-# All Options
-def showQuestions():
+
+def showQuestions():  # All Options
     options = [Fore.WHITE + "1. NEXT TARGET", "2. TRAVEL ARRANGEMENTS", "3. ACCEPT MISSION", "4. TERMINATE SESSION"]
     for x in options:
         print(x+"")
-    
     answerQuestion()
 
 
-# Step 1: Ask for the user name:
-def askName():
+def askName():  # Step 1: Ask for the user name:
     name = input(Fore.YELLOW + "\nAGENT CODE:\n")
     if name == "007":
         print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +current_time+".\n")
@@ -152,6 +132,5 @@ def askName():
         print(Fore.RED + "Your session cannot be started due to an error!")
         askName()
 
+
 askName()
-
-

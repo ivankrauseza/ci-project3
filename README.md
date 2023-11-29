@@ -58,9 +58,29 @@ Fetches GPS Co-ordinates of the next target.
 
 ## Testing
 ### PEP8
-Testing performed with 'PyTest'  
-![PYTEST](/images/pytest.png)  
+Testing performed with https://www.pythonchecker.com/  
 
+In the PEP8 Validator, it suggests putting a space around '=' in 'colorama.init(autoreset=True)' but the python linter in VSCode highlights the space as an error and recommends remove the spaces. After reading further on https://pypi.org/project/colorama/ I have updated the import as follows:  
+Before:
+```
+import colorama
+from colorama import Fore
+colorama.init(autoreset=True)
+```
+After:
+```
+from colorama import Fore, init
+init()
+```
+
+PEP8 Validator suggests adding whitespace around the operators with 'current_time = datetime.now().strftime("%H:%M:%S")' however this is not required:
+```
+current_time = datetime.now().strftime("%H:%M:%S")
+```
+
+## PyTest
+'PyTest'  
+![PYTEST](/images/pytest.png)  
 
 ## Bugs
 ### Version 1
