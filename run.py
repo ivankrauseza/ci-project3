@@ -4,7 +4,7 @@ from colorama import Fore, init
 init()
 
 
-# VARIABLES:
+# PROGRAM VARIABLES:
 
 
 current_time = datetime.now().strftime("%H:%M:%S")  # Current Time
@@ -16,39 +16,42 @@ else:
     greeting = "\nGood evening"
 
 
-# FUNCTIONS:
+code_options = ['007', '47', '0']  # Predefined agent code options
+loc = Nominatim(user_agent="GetLoc")
 
 
-def continueSession():  # Session Management
+# PROGRAM FUNCTIONS:
+
+
+def continue_session():  # Session Management
     qbranch = ''
     while True:
-        qbranch = input(Fore.YELLOW + "Would you like to continue? [Y/N]:\n").lower()
+        qbranch = input(Fore.YELLOW + "Continue? [Y/N]:\n").lower()
         if qbranch == 'y':
-            showQuestions()
+            show_options()
             continue
         elif qbranch == 'n':
             print(Fore.RED + "\nSession terminated!\n")
             quit()
         else:
             print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
-            continueSession()
+            continue_session()
 
 
-def ansA():  # Answer 1
+def answer_one():  # Answer 1
     print(Fore.CYAN + '\nTarget:')
     print(Fore.WHITE + 'Shinji Nakamora')
     print(Fore.CYAN + '\nObjective:')
-    print(Fore.WHITE + 'Locate and extract target with minimal force. Required for urgent questioning!')
-    print(Fore.CYAN + '\nCurrent Location:')
-    loc = Nominatim(user_agent="GetLoc")  # calling the Nominatim tool
-    getLoc = loc.geocode("Paris, France\n")  # entering the location name
-    print(getLoc.address)  # printing address
-    print("Latitude = ", getLoc.latitude, "")  # printing latitude
-    print("Longitude = ", getLoc.longitude)  # printing longitude
+    print(Fore.WHITE + 'Extraction to Rendezvous')
+    print(Fore.CYAN + '\nCurrent Location:')  # calling the Nominatim tool
+    get_location = loc.geocode("Paris, France\n")  # entering the location name
+    print(Fore.WHITE + get_location.address)  # printing address
+    print(Fore.WHITE + "Latitude = ", get_location.latitude, "")  # printing latitude
+    print(Fore.WHITE + "Longitude = ", get_location.longitude)  # printing longitude
     print("\n")
 
 
-def ansB():  # Answer 2
+def answer_two():  # Answer 2
     print(Fore.CYAN + '\nTravel Arrangements:')
     print(Fore.WHITE + 'Meet with Q at 11:11 tomorrow to pick up your Travel documentation and equipment:\n')
     print(Fore.CYAN + '\nCurrent Location:')
@@ -60,47 +63,47 @@ def ansB():  # Answer 2
     print(Fore.CYAN + '\nNotes:')
     print(Fore.WHITE + 'Q will be in a purple hoodie outside the Red Panda enclosure!:\n')
     print("\n")
-    continueSession()
+    continue_session()
 
 
-def missionAccept():
+def mission_accept():
     print(Fore.CYAN + '\nMISSION ACCEPTED!\n')
 
 
-def missionReject():
+def mission_reject():
     print(Fore.RED + '\nMISSION REJECTED!\n')
 
 
-def ansC():  # Answer 3
-    acceptMission = ''
+def answer_three():  # Answer 3
+    accept_mission = ''
     while True:
-        acceptMission = input(Fore.YELLOW + "DO YOU ACCEPT THIS MISSION? [Y/N]:\n").lower()
-        if acceptMission == 'y':
-            missionAccept()
+        accept_mission = input(Fore.YELLOW + "ACCEPT MISSION? [Y/N]:\n").lower()
+        if accept_mission == 'y':
+            mission_accept()
             quit()
-        elif acceptMission == 'n':
-            missionReject()
+        elif accept_mission == 'n':
+            mission_reject()
             quit()
         else:
             print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
-            ansC()
+            answer_three()
 
 
-def answerQuestion():  # Option responses
+def option_responses():  # Option responses
     user_input = ''
 
     while True:
         try:
             user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED [1-4]:\n'))
             if user_input == 1:
-                ansA()
-                continueSession()
+                answer_one()
+                continue_session()
                 continue
             elif user_input == 2:
-                ansB()
+                answer_two()
                 continue
             elif user_input == 3:
-                ansC()
+                answer_three()
                 continue
             elif user_input == 4:
                 print(Fore.RED + "\nSession terminated!\n")
@@ -110,27 +113,34 @@ def answerQuestion():  # Option responses
             continue
 
 
-def showQuestions():  # All Options
-    options = [Fore.WHITE + "1. NEXT TARGET", "2. TRAVEL ARRANGEMENTS", "3. ACCEPT MISSION", "4. TERMINATE SESSION"]
+def show_options():  # Step 2: All Options
+    options = [
+        Fore.WHITE + "1. NEXT TARGET",
+        "2. TRAVEL ARRANGEMENTS",
+        "3. ACCEPT MISSION",
+        "4. TERMINATE SESSION"
+    ]
     for x in options:
         print(x+"")
-    answerQuestion()
+    option_responses()
 
 
-def askName():  # Step 1: Ask for the user name:
-    name = input(Fore.YELLOW + "\nAGENT CODE:\n")
-    if name == "007":
-        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +current_time+".\n")
-        showQuestions()
-    elif name == "47":
-        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +current_time+".\n")
-        showQuestions()
-    elif name == "":
-        print(Fore.RED + "Your session cannot be started, please enter a valid Agent Code!")
-        askName()
+def agent_code():  # Step 1: Ask for the agent code:
+    code = input("AGENT CODE:")
+    if code in code_options:
+        print(
+            Fore.GREEN + greeting + " " + code +
+            ", Your session is logged at: " + current_time +
+            "\n"
+        )
+        show_options()
+
+    elif code not in code_options:
+        print(Fore.RED + "Please enter a valid Agent Code!")
+        agent_code()
     else:
-        print(Fore.RED + "Your session cannot be started due to an error!")
-        askName()
+        print(Fore.RED + "System Error!")
+        agent_code()
 
 
-askName()
+agent_code()

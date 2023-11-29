@@ -58,9 +58,13 @@ Fetches GPS Co-ordinates of the next target.
 
 ## Testing
 ### PEP8
-Testing performed with https://www.pythonchecker.com/  
+Manual testing performed in https://www.pythonchecker.com/ and https://pep8ci.herokuapp.com/ which yielded no errors.
 
-In the PEP8 Validator, it suggests putting a space around '=' in 'colorama.init(autoreset=True)' but the python linter in VSCode highlights the space as an error and recommends remove the spaces. After reading further on https://pypi.org/project/colorama/ I have updated the import as follows:  
+![PEP8 Testing](/images/PEP8_test.png) 
+
+Main errors related to 'length of line too long' and also fixed spacing, line breaks and comment position.  
+
+In the PEP8 Validator, it suggested putting a space around '=' in 'colorama.init(autoreset=True)' but the python linter in VSCode highlights the space as an error and recommends remove the spaces. After reading further on https://pypi.org/project/colorama/ I have updated the import as follows:  
 Before:
 ```
 import colorama
