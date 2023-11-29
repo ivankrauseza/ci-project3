@@ -1,23 +1,23 @@
-import datetime
+from datetime import datetime
+from geopy.geocoders import Nominatim
 import colorama
 from colorama import Fore
 colorama.init(autoreset=True)
-from geopy.geocoders import Nominatim
 
 
-# Determine time based greeting message:
-current_time = datetime.datetime.now().time()
-morning_start = datetime.time(6, 0)
-afternoon_start = datetime.time(12, 0)
-evening_start = datetime.time(18, 0)
-start_time = current_time.strftime("%H:%M:%S")
+# VARIABLES:
 
-if morning_start <= current_time < afternoon_start:
+
+current_time = datetime.now().strftime("%H:%M:%S")  # Current Time
+if current_time < "12:00:00":
     greeting = "\nGood morning"
-elif afternoon_start <= current_time < evening_start:
+elif current_time < "18:00:00":
     greeting = "\nGood afternoon"
 else:
     greeting = "\nGood evening"
+
+
+# FUNCTIONS:
 
 
 # Session Management
@@ -140,10 +140,10 @@ def showQuestions():
 def askName():
     name = input(Fore.YELLOW + "\nAGENT CODE:\n")
     if name == "007":
-        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +current_time+".\n")
         showQuestions()
     elif name == "47":
-        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +start_time+".\n")
+        print(Fore.GREEN + greeting+" "+name+", Your session is logged at: " +current_time+".\n")
         showQuestions()
     elif name == "":
         print(Fore.RED + "Your session cannot be started, please enter a valid Agent Code!")

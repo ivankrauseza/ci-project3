@@ -1,13 +1,10 @@
-# Project Title
-Agent Assist 1.0 
-
+# Secret Agent Assist
+- Updated to version 2.0 
 
 ## Project Description
 A quick and easy place for our secret agents to find out some information about their next mission and objectives! 
 
-
 ## Table of Contents
-
 - [Installation](#installation)
 - [Features](#features)
 - [Logic](#logic)
@@ -23,12 +20,12 @@ A quick and easy place for our secret agents to find out some information about 
 - You need to install [Python](https://www.python.org/downloads/) and [NodeJS](https://nodejs.org/en/download).  
 - Clone from GIT repo `git clone https://github.com/ivankrauseza/ci-project3.git`.
 
-
 ### Installed Python modules
 - Install DateTime:  `pip install datetime` 
 - Install GeoIP:  `pip install python-geoip` 
 - Install Colorama:  `pip install colorama` 
 - Install PyTest:  `pip install pytest` 
+
 
 ## Features
 ### Get current date and time
@@ -58,18 +55,26 @@ Fetches GPS Co-ordinates of the next target.
 ![step 5](/images/step5.png)  
 - The user can return to the main menu or end the session after each option.
 
+
 ## Testing
 ### PEP8
 Testing performed with 'PyTest'  
 ![PYTEST](/images/pytest.png)  
 
+
 ## Bugs
+### Version 1
 - B1 :: Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form.
 - B2 :: Entering any letter when choosing from the main options menu [1-4] loads an integer error.
+### Version 2
+- B3 :: Initial errors on first load
 
-### Resolved Bugs
+## Resolved Bugs
+### Version 1
 - B1 :: Seems to be resolved by moving the global call for the function to within the function itself.
 - B2 :: Fixed by using Try/Except from [source](https://www.includehelp.com/python/asking-the-user-for-integer-input-in-python-limit-the-user-to-input-only-integer-value.aspx)
+### Version 2
+- B3 :: changed 'import datetime' to 'from datetime import datetime' and restructure greeting variable.
 
 
 ## Authors
