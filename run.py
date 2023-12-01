@@ -7,6 +7,8 @@ init()
 # PROGRAM VARIABLES:
 
 
+loc = Nominatim(user_agent="GetLoc")  # get address from city name
+code_options = ['007', '47', '0']  # Predefined agent code options
 current_time = datetime.now().strftime("%H:%M:%S")  # Current Time
 if current_time < "12:00:00":
     greeting = "\nGood morning"
@@ -14,10 +16,6 @@ elif current_time < "18:00:00":
     greeting = "\nGood afternoon"
 else:
     greeting = "\nGood evening"
-
-
-code_options = ['007', '47', '0']  # Predefined agent code options
-loc = Nominatim(user_agent="GetLoc")
 
 
 # PROGRAM FUNCTIONS:
@@ -55,11 +53,10 @@ def answer_two():  # Answer 2
     print(Fore.CYAN + '\nTravel Arrangements:')
     print(Fore.WHITE + 'Meet with Q at 11:11 tomorrow to pick up your Travel documentation and equipment:\n')
     print(Fore.CYAN + '\nCurrent Location:')
-    loc = Nominatim(user_agent="GetLoc")  # calling the Nominatim tool
-    getLoc = loc.geocode("Dublin Zoo, Dublin, Ireland\n")  # entering the location name
-    print(getLoc.address)  # printing address
-    print("Latitude = ", getLoc.latitude, "")  # printing latitude
-    print("Longitude = ", getLoc.longitude)  # printing longitude
+    getLoc = loc.geocode("Dublin Zoo, Dublin, Ireland\n")
+    print(Fore.WHITE + getLoc.address)
+    print(Fore.WHITE + "Latitude = ", getLoc.latitude, "")
+    print(Fore.WHITE + "Longitude = ", getLoc.longitude)
     print(Fore.CYAN + '\nNotes:')
     print(Fore.WHITE + 'Q will be in a purple hoodie outside the Red Panda enclosure!:\n')
     print("\n")
@@ -134,7 +131,6 @@ def agent_code():  # Step 1: Ask for the agent code:
             "\n"
         )
         show_options()
-
     elif code not in code_options:
         print(Fore.RED + "Please enter a valid Agent Code!")
         agent_code()

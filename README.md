@@ -57,6 +57,21 @@ Fetches GPS Co-ordinates of the next target.
 
 
 ## Testing
+
+### Manual Testing
+| Test Function | Action    | Result    |
+| ---           | ---       | ---       |
+| agent_code()  | Deny access to the application if the input does not match the predetermined list of agent codes defined in the 'code_options' variable. Also provide a reason if denied | PASS: The function works as expected |
+| greeting      | When the agent successfully enters the application, the app detects current time and displays a message message of either 'good morning', 'good afternoon' or 'good evening' to the user as well as the exact time they started their session as defined in the 'current_time' and 'greeting' variable  | PASS: The function works as expected |
+| menu |||
+| 1 |||
+| 2 |||
+| 3 |||
+| continue |||
+| 4 |||
+| end |||
+
+
 ### PEP8
 Manual testing performed in https://www.pythonchecker.com/ and https://pep8ci.herokuapp.com/ which yielded no errors.
 
