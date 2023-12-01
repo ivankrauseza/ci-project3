@@ -24,7 +24,6 @@ A quick and easy place for our secret agents to find out some information about 
 - Install DateTime:  `pip install datetime` 
 - Install GeoIP:  `pip install python-geoip` 
 - Install Colorama:  `pip install colorama` 
-- Install PyTest:  `pip install pytest` 
 
 
 ## Features
