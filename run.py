@@ -6,7 +6,8 @@ init()
 
 # PROGRAM VARIABLES:
 
-
+option_instruction = "\nENTER NUMBER TO PROCEED [1-4]:\n"
+mission_instruction = "ACCEPT MISSION [Y/N]:\n"
 loc = Nominatim(user_agent="GetLoc")  # get address from city name
 code_options = ['007', '47', '0']  # Predefined agent code options
 current_time = datetime.now().strftime("%H:%M:%S")  # Current Time
@@ -32,7 +33,7 @@ def continue_session():  # Session Management
             print(Fore.RED + "\nSession terminated!\n")
             quit()
         else:
-            print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
+            print(Fore.CYAN + "\nOnly enter Y for 'yes' or N for 'no'\n")
             continue_session()
 
 
@@ -41,24 +42,24 @@ def answer_one():  # Answer 1
     print(Fore.WHITE + 'Shinji Nakamora')
     print(Fore.CYAN + '\nObjective:')
     print(Fore.WHITE + 'Extraction to Rendezvous')
-    print(Fore.CYAN + '\nCurrent Location:')  # calling the Nominatim tool
-    get_location = loc.geocode("Paris, France\n")  # entering the location name
-    print(Fore.WHITE + get_location.address)  # printing address
-    print(Fore.WHITE + "Latitude = ", get_location.latitude, "")  # printing latitude
-    print(Fore.WHITE + "Longitude = ", get_location.longitude)  # printing longitude
+    print(Fore.CYAN + '\nCurrent Location:')
+    get_location = loc.geocode("Paris, France\n")  # city name
+    print(Fore.WHITE + get_location.address)  # display address
+    print(Fore.WHITE + "Latitude = ", get_location.latitude, "")  # latitude
+    print(Fore.WHITE + "Longitude = ", get_location.longitude)  # longitude
     print("\n")
 
 
 def answer_two():  # Answer 2
     print(Fore.CYAN + '\nTravel Arrangements:')
-    print(Fore.WHITE + 'Meet with Q at 11:11 tomorrow to pick up your Travel documentation and equipment:\n')
+    print(Fore.WHITE + 'Meet Q @11:11 tomorrow for equipment and documents:\n')
     print(Fore.CYAN + '\nCurrent Location:')
     getLoc = loc.geocode("Dublin Zoo, Dublin, Ireland\n")
     print(Fore.WHITE + getLoc.address)
     print(Fore.WHITE + "Latitude = ", getLoc.latitude, "")
     print(Fore.WHITE + "Longitude = ", getLoc.longitude)
     print(Fore.CYAN + '\nNotes:')
-    print(Fore.WHITE + 'Q will be in a purple hoodie outside the Red Panda enclosure!:\n')
+    print(Fore.WHITE + 'Q will be at the Cafe wearing a purple hat.:\n')
     print("\n")
     continue_session()
 
@@ -74,7 +75,7 @@ def mission_reject():
 def answer_three():  # Answer 3
     accept_mission = ''
     while True:
-        accept_mission = input(Fore.YELLOW + "ACCEPT MISSION? [Y/N]:\n").lower()
+        accept_mission = input(Fore.YELLOW + mission_instruction).lower()
         if accept_mission == 'y':
             mission_accept()
             quit()
@@ -82,7 +83,7 @@ def answer_three():  # Answer 3
             mission_reject()
             quit()
         else:
-            print(Fore.CYAN + "\nPlease only enter Y for 'yes' or N for 'no'\n")
+            print(Fore.CYAN + "\nOnly enter Y for 'yes' or N for 'no'\n")
             answer_three()
 
 
@@ -91,7 +92,7 @@ def option_responses():  # Option responses
 
     while True:
         try:
-            user_input = int(input(Fore.YELLOW + '\nENTER NUMBER TO PROCEED [1-4]:\n'))
+            user_input = int(input(Fore.YELLOW + option_instruction))
             if user_input == 1:
                 answer_one()
                 continue_session()
