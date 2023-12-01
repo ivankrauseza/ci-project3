@@ -97,10 +97,6 @@ PEP8 Validator suggests adding whitespace around the operators with 'current_tim
 current_time = datetime.now().strftime("%H:%M:%S")
 ```
 
-## PyTest
-'PyTest'  
-![PYTEST](/images/pytest.png)  
-
 ## Bugs
 ### Version 1
 - B1 :: Repeat 'Would you like to continue' after selecting 'Y', should only display options with input form.
