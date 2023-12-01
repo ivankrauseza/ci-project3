@@ -75,7 +75,7 @@ Fetches GPS Co-ordinates of the next target.
 ### PEP8
 Manual testing performed in https://www.pythonchecker.com/ and https://pep8ci.herokuapp.com/ which yielded no errors.
 
-![PEP8 Testing](/images/PEP8_test.png) 
+![CI Python Linter](/images/ci_python_linter.png)  
 
 Main errors related to 'length of line too long' and also fixed spacing, line breaks and comment position.  
 
