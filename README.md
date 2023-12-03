@@ -28,15 +28,15 @@ A quick and easy place for our secret agents to find out some information about 
 
 ## Features
 ### Get current date and time
-This is to personalise the greeting (morning, afternoon, evening)  
+Use datetime to detect the users current date and time. This is to personalise the greeting (morning, afternoon, evening)  
 ![Greeting](/images/greeting.png)  
 
 ### Color coding
-Add colorama for color coding some of the print() statements.  
+Use colorama for color coding some of the print() statements.  
 | GREEN | YELLOW | CYAN | RED |
 
 ### GeoLocation
-Fetches GPS Co-ordinates of the next target.  
+Use Geopy package to display GPS Co-ordinates of the next target.  
 ![Location](/images/location.png)  
 
 ## Logic
@@ -74,7 +74,7 @@ Fetches GPS Co-ordinates of the next target.
 ### PEP8
 Manual testing performed in https://www.pythonchecker.com/ and https://pep8ci.herokuapp.com/ which yielded no errors.
 
-![PEP8 PythonCehcker](/images/PEP8_Test.png)  
+![PEP8 PythonChecker](/images/PEP8_Test.png)  
 
 ![CI Python Linter](/images/ci_python_linter.png)  
 
