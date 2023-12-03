@@ -7,7 +7,7 @@ init()
 # PROGRAM VARIABLES:
 
 option_instruction = "\nENTER NUMBER TO PROCEED [1-4]:\n"
-mission_instruction = "ACCEPT MISSION [Y/N]:\n"
+mission_instruction = "\nACCEPT MISSION [Y/N]:\n"
 loc = Nominatim(user_agent="GetLoc")  # get address from city name
 code_options = ['007', '47', '0']  # Predefined agent code options
 current_time = datetime.now().strftime("%H:%M:%S")  # Current Time

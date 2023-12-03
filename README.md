@@ -60,19 +60,21 @@ Fetches GPS Co-ordinates of the next target.
 ### Manual Testing
 | Test Function | Action    | Result    |
 | ---           | ---       | ---       |
-| agent_code()  | Deny access to the application if the input does not match the predetermined list of agent codes defined in the 'code_options' variable. Also provide a reason if denied | PASS: The function works as expected |
-| greeting      | When the agent successfully enters the application, the app detects current time and displays a message message of either 'good morning', 'good afternoon' or 'good evening' to the user as well as the exact time they started their session as defined in the 'current_time' and 'greeting' variable  | PASS: The function works as expected |
-| menu |||
-| 1 |||
-| 2 |||
-| 3 |||
-| continue |||
-| 4 |||
-| end |||
+| agent_code()  | In order to access the application, the user has to enter a specific agent code from a list of predefined options found in the 'code_options' variable. The application denies access to the user if the code is invalid. If the code is inavalid, send a response back to the user for a possible reason why they cannot access the application. | PASS: The function works as expected |
+| greeting      | When the agent successfully enters the application, the app detects current time and displays a message of either 'good morning', 'good afternoon' or 'good evening' to the user as well as the exact time they started their session as defined in the 'current_time' and 'greeting' variables  | PASS: The function works as expected |
+| show_options() | Below the greeting message, the user is presented with a numbered list of options. They will input a number from 1-4 and press the 'enter' key which will call the option_responses() function. The user can only input numbers '1', '2', '3' in order to view the next mission details and accept/reject the mission and the user can exit the application if they insert '4'.  | PASS: All numbers 1-4 respond as expected. |
+| 1 : option_responses() > answer_one() | When the user chooses option 1, the answer_one() function is called detailing the mission target details. This information includes the use of the Geopy package to display the address and gps co-ordinates of the the next target. | PASS: both option_responses() and answer_one() function as expected. |
+| 2 : option_responses() > answer_two() | When the user chooses option 2, the answer_two() function is called detailing the instructions to collect equipment and documents for the next mission. | PASS: both option_responses() and answer_two() function as expected. |
+| 3 : option_responses() > answer_three() | When the user chooses option 3, the answer_three() function is called asking the user if they accept the mission or not by entering 'y' for yes or 'n' for no in either upper or lowercase. If they choose yes, the app responds to the user confirming the mission is accepted and they are logged out of the application. If they choose not to accept the mission, the app responds with a message confirming the user did not accept the mission and then the application terminates the session. | PASS: both option_responses() and answer_three() function as expected. |
+| continue_session() | After responses '1' and '2', the user is asked if they would like to continue the session or not by entering 'y' for yes or 'n' for no in either upper or lowercase. If yes the show_options() function is called and the user can choose from the options 1-4 again. If the user chooses no, the the application terminates. | PASS: functions as expected. |
+| 4 : quit() | if the user chooses option 4 from the main menu, the application will run the default quit() function and terminate the session. | PASS: functions as expected. |
+||||
 
 
 ### PEP8
 Manual testing performed in https://www.pythonchecker.com/ and https://pep8ci.herokuapp.com/ which yielded no errors.
+
+![PEP8 PythonCehcker](/images/PEP8_Test.png)  
 
 ![CI Python Linter](/images/ci_python_linter.png)  
 
