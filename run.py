@@ -66,10 +66,12 @@ def answer_two():  # Answer 2
 
 def mission_accept():
     print(Fore.CYAN + '\nMISSION ACCEPTED!\n')
+    print(Fore.RED + '\nSession Terminated!\n')
 
 
 def mission_reject():
     print(Fore.RED + '\nMISSION REJECTED!\n')
+    print(Fore.RED + '\nSession Terminated!\n')
 
 
 def answer_three():  # Answer 3
